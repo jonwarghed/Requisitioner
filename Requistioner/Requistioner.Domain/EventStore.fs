@@ -42,8 +42,10 @@ let makeReadModelGetter (conn:IEventStoreConnection) (deserialize:byte array -> 
         elif eventsSlice.Events.Length = 0 then return None
         else 
             let lastEvent = eventsSlice.Events.[0]
-            if lastEvent.Event.EventNumber = 0 then return None
-            else return Some(deserialize(lastEvent.Event.Data))    
+            //Not sure if this row is a good idea
+//            if lastEvent.Event.EventNumber = 0 then return None
+//            else 
+            return Some(deserialize(lastEvent.Event.Data))    
     }
 
 module Global =

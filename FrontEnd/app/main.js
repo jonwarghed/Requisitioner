@@ -37,10 +37,12 @@ approval.controller = function(){
 
     this.get = function(){
         if (this.currentuser()) {
+            self.list = new approval.ApprovalList();
             m.request({method: "GET", url: "http://localhost:43564/query/approver/" + this.currentuser()}).then(function(answers){
                 answers.approvals.forEach(function(answer)
                 {
                     self.list.push(new approval.Approval({id: answer}));
+                    console.log(self.list);
                 });
             });
         }
@@ -59,8 +61,8 @@ approval.view = function(ctrl) {
             m("table", [
                 ctrl.list.map(function(item, index) {
                     return m("tr", [
-                        m("td", [m("button", {onclick: ctrl.approveApproval(item.id())}, "Approve")]),
-                        m("td", [m("button", {onclick: ctrl.rejectApproval(item.id())}, "Reject")])
+                        m("td", [m("button", {onclick: function wrap() {ctrl.approveApproval(item.id())}}, "Approve")]),
+                        m("td", [m("button", {onclick: function wrap() {ctrl.rejectApproval(item.id())}}, "Reject")])
                     ])
                 })
             ])

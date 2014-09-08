@@ -5,14 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>0cfb74ad-b89c-4ed0-a771-27c26072588a</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Requistioner.API.Query</RootNamespace>
-    <AssemblyName>
-    </AssemblyName>
+    <ProjectGuid>4a13a334-ed97-4a37-8ea4-0d9f946abed9</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Requistioner.FrontEnd</RootNamespace>
+    <AssemblyName>Requistioner.FrontEnd</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
-    <Name>Requistioner.API.Query</Name>
+    <Name>Requistioner.FrontEnd</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +21,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\Requistioner.API.Query.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Requistioner.FrontEnd.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,7 +30,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\Requistioner.API.Query.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Requistioner.FrontEnd.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
@@ -69,13 +68,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Requistioner.Domain\Requistioner.Domain.fsproj">
-      <Name>Requistioner.Domain</Name>
-      <Project>{691d34cc-bf0a-44a9-8d76-5ad0b233db26}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
