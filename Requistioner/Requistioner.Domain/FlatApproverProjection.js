@@ -1,14 +1,16 @@
-﻿var emitReadModel = function (s, e, eventtype) {
-    var streamId = "ApproverFlatReadModel-" + e.data.value;    
-    emit(streamId, eventType, e);
+﻿var emitReadModel = function (s, e) {
+    var streamId = "ApproverFlatReadModel-" + e.data.value;;
+    var eventType = e.eventType + "_ApproverFlatReadModel";
+    emit(streamId, eventType, s);
 };
 fromCategory('Approval').foreachStream().when({
-    $init: function (s,e) {
+    $init: function (s, e) {
         return {
+            approvals: []
         };
     },
     "Requested": function (s, e) {
-        var eventType = "ApprovedAdded";
+        s.approvals.push(e.streamId.replace("Approval-", ""));
         emitReadModel(s, e);
     }
 });

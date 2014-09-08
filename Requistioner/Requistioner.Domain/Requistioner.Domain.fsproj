@@ -56,6 +56,7 @@
     <Compile Include="Approval.fs" />
     <Compile Include="ReadModels.fs" />
     <Compile Include="ReadModelGetters.fs" />
+    <Content Include="LinkedApproverProjection.js" />
     <Content Include="FlatApproverProjection.js" />
     <None Include="packages.config" />
     <Content Include="FlatApprovalProjection.js" />
