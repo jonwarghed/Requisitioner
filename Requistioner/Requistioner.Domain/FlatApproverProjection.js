@@ -1,5 +1,5 @@
 ﻿var emitReadModel = function (s, e) {
-    var streamId = "ApproverFlatReadModel-" + e.data.value;;
+    var streamId = "ApproverFlatReadModel-" + e.data.value;
     var eventType = e.eventType + "_ApproverFlatReadModel";
     emit(streamId, eventType, s);
 };

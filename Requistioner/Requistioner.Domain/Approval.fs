@@ -12,12 +12,14 @@ type ApprovalCommand =
     | Approve of approver: string * message: string
     | Reject of approver: string * message: string
     | TimeOut of approver: string
+    | Delegate of approver: string
 
 type ApprovalEvent = 
     | Requested of string
     | Approved of  approver: string * message: string
     | Rejected of  approver: string * message: string
     | TimedOut of string
+    | Delegated of string
 
 open Validator
 
@@ -32,12 +34,14 @@ let exec state =
     | Approve (approver,message)    -> Assert.possibleToChange state <* Assert.validateApprover (state,approver) <?> Approved(approver,message)
     | Reject (approver,message)     -> Assert.possibleToChange state <?> Rejected(approver,message)
     | TimeOut  approver             -> Assert.possibleToChange state <?> TimedOut(approver)
+    | Delegate name                 -> Assert.validateName name <?> Delegated(name)
 
 let apply approval = function
-    | Requested req -> {approval with approver = req}
+    | Requested req -> {approval with approver = req;}
     | Approved _ -> { approval with pending = false; }
     | Rejected _ -> { approval with pending = false;}
     | TimedOut _ -> { approval with pending = false;}
+    | Delegated req -> {approval with approver = req;}
 
 module CommandHandler = 
     let Handle = Aggregate.makeHandler 
